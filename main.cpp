@@ -491,7 +491,7 @@ int main() {
 
 	///////////ゲーム木の後退解析(backtrack)
 
-	//深さが奇数の時は、偶然手番を用いるため平均値。
+	//深さが奇数の時は、MinMaxで最小なところを取るため、最小値。
 	//深さが偶数の時は、MinMaxで最大なところを取るため、最大値。
 
 	//updateQueueを使いまわす。終端から、ゲーム値を後ろ向き帰納法で求める。詳しくは”ゲーム理論（岡田　章）”
@@ -577,10 +577,10 @@ int main() {
 	}
 
 	
-	////////////ゲームをプレイする
+	////////////ゲームをプレイする。人間同士でプレイするならここをアンコメント
 	//TicTacToeGame::Play(m, std::unique_ptr<PlayerBase>(new HumanPlayer()), std::unique_ptr<PlayerBase>(new StrongAI()));
 
-	////////////自動対戦する
+	////////////自動対戦する。自動対戦が不要ならコメントアウト
 	{
 		int count = 1000;
 		int play_data[3][3][4] = {};
@@ -625,9 +625,6 @@ int main() {
 				std::cout << "{" << std::setw(4) << play_data[f][s][2] << "," << std::setw(4) << play_data[f][s][0] << "," << std::setw(4) << play_data[f][s][3] << "}" << std::endl;
 			}
 		}
-
-
-
 	}
 }
 
