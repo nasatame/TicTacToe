@@ -4,7 +4,7 @@
 https://wiki.mma.club.uec.ac.jp/Booklet
 
 ## HOW TO COMPILE
-開発環境は、Visual Studio 2019 Community + C++20です。  
+開発環境は、"Visual Studio 2019 Community" + "C++20"です。  
 C++20がコンパイルできる環境なら動くと思われます。  
 STLを使用している一部(contain)を書き換えれば、C++のバージョンを下げても動くと思います。  
 
