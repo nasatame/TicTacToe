@@ -482,7 +482,8 @@ int main() {
 					}
 					m[child.state].parents.push_back(top);
 					now.children.push_back(child.state);
-					updateQueue.push(child.state);
+					if (!child.isLeaf)
+						updateQueue.push(child.state);
 
 				}
 			}
