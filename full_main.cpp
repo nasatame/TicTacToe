@@ -37,17 +37,17 @@ public:
 	std::vector<int> parents;
 	std::vector<int> children;
 
-	//[‚³B
+	//æ·±ã•ã€‚
 	int depth = 0;
-	//ƒ{[ƒh‚Ìó‘ÔA2i”‚Å‚ ‚ç‚í‚³‚ê‚é
+	//ãƒœãƒ¼ãƒ‰ã®çŠ¶æ…‹ã€2é€²æ•°ã§ã‚ã‚‰ã‚ã•ã‚Œã‚‹
 	Board state;
-	//“WŠJÏ‚İ‚©‚Ç‚¤‚©
+	//å±•é–‹æ¸ˆã¿ã‹ã©ã†ã‹
 	bool hasExpansion = false;
-	//I’[”»’è
+	//çµ‚ç«¯åˆ¤å®š
 	bool isLeaf = false;
-	//ƒQ[ƒ€’l
+	//ã‚²ãƒ¼ãƒ å€¤
 	double gameValue = 0;
-	//ƒQ[ƒ€’l‚ª—^‚¦‚ç‚ê‚½‚©‚Ç‚¤‚©
+	//ã‚²ãƒ¼ãƒ å€¤ãŒä¸ãˆã‚‰ã‚ŒãŸã‹ã©ã†ã‹
 	bool hasGameValue = false;
 };
 
@@ -92,14 +92,14 @@ public:
 
 		while (TicTacToeGame::Check(gameBoard) == GameState::CONTINUE) {
 
-			std::cout << "ƒ^[ƒ“F" << m[gameBoard].depth << std::endl;
+			std::cout << "ã‚¿ãƒ¼ãƒ³ï¼š" << m[gameBoard].depth << std::endl;
 			if (true) { //debug
-				std::cout << "child sizeF" << m[gameBoard].children.size() << std::endl;
+				std::cout << "child sizeï¼š" << m[gameBoard].children.size() << std::endl;
 				for (const Board& b : m[gameBoard].children) {
 					std::cout << std::setprecision(2) << m[b].gameValue << " ";
 				}
 				std::cout << std::endl;
-				std::cout << "game valueF" << m[gameBoard].gameValue << std::endl;
+				std::cout << "game valueï¼š" << m[gameBoard].gameValue << std::endl;
 
 			}
 			TicTacToeGame::DisplayBoard(gameBoard, std::cout);
@@ -112,7 +112,7 @@ public:
 			}
 			if (!m.contains(gameBoard)) {
 
-				std::cerr << "ƒGƒ‰[F•s³‚Èƒ{[ƒh‚Å‚·" << std::endl;
+				std::cerr << "ã‚¨ãƒ©ãƒ¼ï¼šä¸æ­£ãªãƒœãƒ¼ãƒ‰ã§ã™" << std::endl;
 				return false;
 			}
 
@@ -123,13 +123,13 @@ public:
 		switch (state)
 		{
 		case GameState::DRAW:
-			std::cout << "ˆø‚«•ª‚¯‚Å‚·" << std::endl;
+			std::cout << "å¼•ãåˆ†ã‘ã§ã™" << std::endl;
 			break;
 		case GameState::WHITE_WIN:
-			std::cout << "æU‚ÌŸ‚¿‚Å‚·" << std::endl;
+			std::cout << "å…ˆæ”»ã®å‹ã¡ã§ã™" << std::endl;
 			break;
 		case GameState::BLACK_WIN:
-			std::cout << "ŒãU‚ÌŸ‚¿‚Å‚·" << std::endl;
+			std::cout << "å¾Œæ”»ã®å‹ã¡ã§ã™" << std::endl;
 			break;
 		default:
 			break;
@@ -151,7 +151,7 @@ public:
 			}
 			if (!m.contains(gameBoard)) {
 
-				std::cerr << "ƒGƒ‰[F•s³‚Èƒ{[ƒh‚Å‚·" << std::endl;
+				std::cerr << "ã‚¨ãƒ©ãƒ¼ï¼šä¸æ­£ãªãƒœãƒ¼ãƒ‰ã§ã™" << std::endl;
 				return GameState::CONTINUE;
 			}
 
@@ -326,7 +326,7 @@ public:
 			hand.second = STONE::BLACK;
 		}
 
-		std::cout << "‚ ‚È‚½‚ÍA" << TicTacToeGame::GetChar(hand.second) << std::endl;
+		std::cout << "ã‚ãªãŸã¯ã€" << TicTacToeGame::GetChar(hand.second) << std::endl;
 		std::cin >> hand.first;
 
 		return TicTacToeGame::Operate(now, hand);
@@ -427,21 +427,21 @@ private:
 };
 
 
-//‹ğ’¼‚É’Tõ‚·‚é‚Æ9!‚©‚©‚é‚½‚ßADPiƒgƒ‰ƒ“ƒXƒ|ƒWƒVƒ‡ƒ“ƒe[ƒuƒ‹j‚ğ—p‚¢‚½‚‘¬‰»‚ğs‚¤‚±‚Æ‚É‚µ‚½B
+//æ„šç›´ã«æ¢ç´¢ã™ã‚‹ã¨9!ã‹ã‹ã‚‹ãŸã‚ã€DPï¼ˆãƒˆãƒ©ãƒ³ã‚¹ãƒã‚¸ã‚·ãƒ§ãƒ³ãƒ†ãƒ¼ãƒ–ãƒ«ï¼‰ã‚’ç”¨ã„ãŸé«˜é€ŸåŒ–ã‚’è¡Œã†ã“ã¨ã«ã—ãŸã€‚
 
 
-//ƒnƒbƒVƒ…ŠÖ”
-// ‚Å‚«‚ê‚ÎˆÈ‰º‚Ì—l‚ÉÀ‘•‚·‚é‚×‚«‚¾‚ªAZ~ƒQ[ƒ€‚¾‚©‚ç‚³‚Ú‚Á‚½
+//ãƒãƒƒã‚·ãƒ¥é–¢æ•°
+// ã§ãã‚Œã°ä»¥ä¸‹ã®æ§˜ã«å®Ÿè£…ã™ã‚‹ã¹ãã ãŒã€ã€‡Ã—ã‚²ãƒ¼ãƒ ã ã‹ã‚‰ã•ã¼ã£ãŸ
 //https://en.wikipedia.org/wiki/Zobrist_hashing
 
 int main() {
 
-	//////////////‰º€”õ
+	//////////////ä¸‹æº–å‚™
 
-	//ƒnƒbƒVƒ…ƒe[ƒuƒ‹‚ğ—p‚¢‚½‚‘¬‰»
+	//ãƒãƒƒã‚·ãƒ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ç”¨ã„ãŸé«˜é€ŸåŒ–
 	//https://en.wikipedia.org/wiki/Transposition_table
 	NodeTable m;
-	//•—Dæ’Tõ‚ğg‚¤ê‡AQueue‚ğ—p‚¢‚é‚×‚«B
+	//å¹…å„ªå…ˆæ¢ç´¢ã‚’ä½¿ã†å ´åˆã€Queueã‚’ç”¨ã„ã‚‹ã¹ãã€‚
 	std::queue<size_t> updateQueue;
 	const Board startHashValue = Board();
 	{
@@ -455,7 +455,7 @@ int main() {
 
 	m.reserve(5*9*8*7*6*5*4*3*2*1);
 
-	////////////ƒQ[ƒ€–Ø‚Ì“WŠJ
+	////////////ã‚²ãƒ¼ãƒ æœ¨ã®å±•é–‹
 	while (!updateQueue.empty()) {
 
 		const size_t top = updateQueue.front();
@@ -465,7 +465,7 @@ int main() {
 		if (!now.hasExpansion) {
 			now.hasExpansion = true;
 
-			//“WŠJ‚·‚é
+			//å±•é–‹ã™ã‚‹
 			for (int i = 0; i < N * N; i++) {
 				if (TicTacToeGame::get(now.state, i + 1) == STONE::NONE) {
 
@@ -475,14 +475,15 @@ int main() {
 					Node child;
 					child.state = TicTacToeGame::Operate(now.state, Hand(i + 1, stone));
 					child.depth = now.depth + 1;
-					if (TicTacToeGame::Check(child.state) != GameState::CONTINUE) { //I’[‚Å‚ ‚é‚½‚ßˆ—‚·‚é
+					if (TicTacToeGame::Check(child.state) != GameState::CONTINUE) { //çµ‚ç«¯ã§ã‚ã‚‹ãŸã‚å‡¦ç†ã™ã‚‹
 						child.isLeaf = true;
 						child.hasGameValue = true;
 						child.gameValue = ::calcGameValue(child);
 					}
 					child.parents.push_back(top);
 					now.children.push_back(m.size());
-					updateQueue.push(m.size());
+					if(!child.isLeaf)
+						updateQueue.push(m.size());
 					m.push_back(child);
 
 				}
@@ -490,12 +491,12 @@ int main() {
 		}
 	}
 
-	///////////ƒQ[ƒ€–Ø‚ÌŒã‘Ş‰ğÍ(backtrack)
+	///////////ã‚²ãƒ¼ãƒ æœ¨ã®å¾Œé€€è§£æ(backtrack)
 
-	//[‚³‚ªŠï”‚Ì‚ÍAMinMax‚ÅÅ¬‚È‚Æ‚±‚ë‚ğæ‚é‚½‚ßAÅ¬’lB
-	//[‚³‚ª‹ô”‚Ì‚ÍAMinMax‚ÅÅ‘å‚È‚Æ‚±‚ë‚ğæ‚é‚½‚ßAÅ‘å’lB
+	//æ·±ã•ãŒå¥‡æ•°ã®æ™‚ã¯ã€MinMaxã§æœ€å°ãªã¨ã“ã‚ã‚’å–ã‚‹ãŸã‚ã€æœ€å°å€¤ã€‚
+	//æ·±ã•ãŒå¶æ•°ã®æ™‚ã¯ã€MinMaxã§æœ€å¤§ãªã¨ã“ã‚ã‚’å–ã‚‹ãŸã‚ã€æœ€å¤§å€¤ã€‚
 
-	//updateQueue‚ğg‚¢‚Ü‚í‚·BI’[‚©‚çAƒQ[ƒ€’l‚ğŒã‚ëŒü‚«‹A”[–@‚Å‹‚ß‚éBÚ‚µ‚­‚ÍhƒQ[ƒ€—˜_i‰ª“c@Íjh
+	//updateQueueã‚’ä½¿ã„ã¾ã‚ã™ã€‚çµ‚ç«¯ã‹ã‚‰ã€ã‚²ãƒ¼ãƒ å€¤ã‚’å¾Œã‚å‘ãå¸°ç´æ³•ã§æ±‚ã‚ã‚‹ã€‚è©³ã—ãã¯â€ã‚²ãƒ¼ãƒ ç†è«–ï¼ˆå²¡ç”°ã€€ç« ï¼‰â€
 	for (const auto& n : m) {
 		if (n.isLeaf) {
 			for (int i = 0; i < n.parents.size(); i++)
@@ -504,7 +505,7 @@ int main() {
 	}
 
 	int countHasGameValue = 0;
-	int countDoesntHaveGameValue = 0; //‚±‚Ì’l‚ª0‚Ì³‚µ‚¢B
+	int countDoesntHaveGameValue = 0; //ã“ã®å€¤ãŒ0ã®æ™‚æ­£ã—ã„ã€‚
 
 	while (!updateQueue.empty()) {
 		const int top = updateQueue.front();
@@ -524,14 +525,14 @@ int main() {
 			if (check) {
 				now.hasGameValue = true;
 
-				if (now.depth % 2 == 0) { //Å‘å’l
+				if (now.depth % 2 == 0) { //æœ€å¤§å€¤
 					double maxValue = -1;
 					for (int i = 0; i < now.children.size(); i++) {
 						maxValue = std::max(maxValue, m[now.children[i]].gameValue);
 					}
 					now.gameValue = maxValue;
 				}
-				else { //Å¬’l
+				else { //æœ€å°å€¤
 					double minValue = 1;
 					for (int i = 0; i < now.children.size(); i++) {
 						minValue = std::min(minValue, m[now.children[i]].gameValue);
@@ -548,8 +549,8 @@ int main() {
 		}
 	}
 
-	///////////Œ‹‰Ê‹y‚ÑƒQ[ƒ€–Ø‚Ì•\¦
-	std::cout << "ƒQ[ƒ€‘S‘Ì‚ÍŸ‚¿(0<a)or•‰‚¯(a<0)orˆø‚«•ª‚¯(a=0)‚Å‚·B:" << m[0].gameValue << std::endl;
+	///////////çµæœåŠã³ã‚²ãƒ¼ãƒ æœ¨ã®è¡¨ç¤º
+	std::cout << "ã‚²ãƒ¼ãƒ å…¨ä½“ã¯å‹ã¡(0<a)orè² ã‘(a<0)orå¼•ãåˆ†ã‘(a=0)ã§ã™ã€‚:" << m[0].gameValue << std::endl;
 	{
 		int depthList[N * N + 1] = {};
 		for (const auto& n : m) {
@@ -562,7 +563,7 @@ int main() {
 
 			depthList[n.depth]++;
 
-			if (false) {//Œ‹‰Ê‚Ì•\¦‚ª•K—v‚È‚Æ‚«‚Í•t‚¯‚ÄB‚½‚¾‚µ‚©‚È‚èo‚Ü‚·B
+			if (false) {//çµæœã®è¡¨ç¤ºãŒå¿…è¦ãªã¨ãã¯ä»˜ã‘ã¦ã€‚ãŸã ã—ã‹ãªã‚Šå‡ºã¾ã™ã€‚
 				TicTacToeGame::DisplayCSV(n, std::cout);
 			}
 
@@ -573,12 +574,12 @@ int main() {
 		}
 		std::cout << std::endl;
 
-		std::cout << "Œã‘Ş‰ğÍ‚ª‚³‚ê‚½:" << countHasGameValue << std::endl;
-		std::cout << "Œã‘Ş‰ğÍ‚ª‚³‚ê‚È‚¢:" << countDoesntHaveGameValue << std::endl;
+		std::cout << "å¾Œé€€è§£æãŒã•ã‚ŒãŸ:" << countHasGameValue << std::endl;
+		std::cout << "å¾Œé€€è§£æãŒã•ã‚Œãªã„:" << countDoesntHaveGameValue << std::endl;
 	}
 
 
-	////////////ƒQ[ƒ€‚ğƒvƒŒƒC‚·‚éBlŠÔ“¯m‚ÅƒvƒŒƒC‚·‚é‚È‚ç‚±‚±‚ğƒAƒ“ƒRƒƒ“ƒg
+	////////////ã‚²ãƒ¼ãƒ ã‚’ãƒ—ãƒ¬ã‚¤ã™ã‚‹ã€‚äººé–“åŒå£«ã§ãƒ—ãƒ¬ã‚¤ã™ã‚‹ãªã‚‰ã“ã“ã‚’ã‚¢ãƒ³ã‚³ãƒ¡ãƒ³ãƒˆ
 	//TicTacToeGame::Play(m, std::unique_ptr<PlayerBase>(new HumanPlayer()), std::unique_ptr<PlayerBase>(new StrongAI()));
 }
 
